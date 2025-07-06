@@ -1,21 +1,38 @@
-interface QuoteProps {
-  quote: {
-    quote: string;
-    author: string;
-    category: string;
-  };
+// components/QuoteCard.tsx
+import React from "react";
+import { getQuoteBoxStyle } from "@/app/page"; // adjust import if needed
+
+interface Quote {
+  quote: string;
+  author: string;
+  category: string;
 }
 
-export default function QuoteCard({ quote }: QuoteProps) {
+const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
+  const style = getQuoteBoxStyle(quote.category);
+
   return (
-    <div className="border rounded-2xl p-6 shadow-md bg-white space-y-4 hover:shadow-lg transition-shadow">
-      <p className="text-xl font-semibold italic">&quot;{quote.quote}&quot;</p>
+    <div>
+      <p className="text-lg font-semibold mb-2" style={{ color: style.text }}>
+        “{quote.quote}”
+      </p>
       <div className="flex justify-between items-center">
-        <p className="text-sm text-gray-600">— {quote.author}</p>
-        <span className="px-3 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">
+        <p className="text-sm italic" style={{ color: style.text }}>
+          — {quote.author}
+        </p>
+        <span
+          className="text-xs px-3 py-1 rounded-full font-medium"
+          style={{
+            backgroundColor: style.bg,
+            color: style.text,
+            border: `1px solid ${style.text}`,
+          }}
+        >
           {quote.category}
         </span>
       </div>
     </div>
   );
-}
+};
+
+export default QuoteCard;
