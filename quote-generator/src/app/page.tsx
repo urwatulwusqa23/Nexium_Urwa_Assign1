@@ -145,7 +145,6 @@ export default function Home() {
       className="min-h-screen bg-cover bg-center bg-no-repeat px-4 py-6 flex flex-col"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      {/* Top-Centered Search Bar */}
       <div className="flex justify-center mb-4">
         <div className="w-full max-w-xl flex gap-2">
           <Input
@@ -162,7 +161,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Centered Quote Content */}
       <main className="flex-grow flex flex-col justify-center items-center">
         <div className="bg-white bg-opacity-80 backdrop-blur-md rounded-2xl p-6 shadow-xl max-w-xl w-full space-y-4">
           {loading && <p className="text-center text-gray-600">Loading...</p>}
@@ -173,7 +171,6 @@ export default function Home() {
             </div>
           )}
 
-          {/* Show random quote */}
           {!loading && quote && (
             <div
               className="rounded-2xl p-6"
@@ -183,7 +180,6 @@ export default function Home() {
             </div>
           )}
 
-          {/* Show search results */}
           {!loading && results.length > 0 && (
             <>
               <h2 className="text-lg font-semibold text-center">
@@ -216,7 +212,6 @@ export default function Home() {
               </p>
             )}
 
-          {/* New Quote Button */}
           <div className="flex justify-end">
             <Button variant="outline" onClick={fetchRandomQuote} disabled={loading}>
               New Quote
