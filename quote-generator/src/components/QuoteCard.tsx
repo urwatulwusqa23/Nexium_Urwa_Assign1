@@ -1,6 +1,9 @@
 // components/QuoteCard.tsx
 import React from "react";
-import { getQuoteBoxStyle } from "@/app/page"; // adjust import if needed
+import { getQuoteBoxStyle } from "@/lib/getQuoteBoxStyle"; // ✅ must be this
+
+// use it like:
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 interface Quote {
   quote: string;

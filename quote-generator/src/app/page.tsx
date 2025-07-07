@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import QuoteCard from "@/components/QuoteCard";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { getQuoteBoxStyle } from "@/lib/getQuoteBoxStyle";
 
 interface Quote {
   quote: string;
@@ -78,73 +79,7 @@ const getBackgroundImage = (category: string | null) => {
   return map[category?.toLowerCase() || ""] || "/Whatt.jpg";
 };
 
-export const getQuoteBoxStyle = (category: string | null) => {
-  const map: { [key: string]: { bg: string; text: string } } = {
-    exploration: { bg: "#C79150", text: "#000" },
-    action: { bg: "#BBB8A6", text: "#000" },
-    adaptability: { bg: "#DCDADA", text: "#000" },
-    ambition: { bg: "#DCDADA", text: "#000" },
-    authenticity: { bg: "#C6A0AB", text: "#000" },
-    beginnings: { bg: "#BBB8A6", text: "#000" },
-    belief: { bg: "#5B4E42", text: "#fff" },
-    change: { bg: "#BBB8A6", text: "#000" },
-    choices: { bg: "#BBB8A6", text: "#000" },
-    courage: { bg: "#2F2E2A", text: "#fff" },
-    confidence: { bg: "#FBB6C2", text: "#000" },
-    creativity: { bg: "#342E28", text: "#fff" },
-    determination: { bg: "#132530", text: "#fff" },
-    dreams: { bg: "#6C91A7", text: "#000" },
-    education: { bg: "#FBFBFA", text: "#000" },
-    excellence: { bg: "#282828", text: "#fff" },
-    failure: { bg: "#0A1618", text: "#fff" },
-    growth: { bg: "#3D4324", text: "#fff" },
-    happiness: { bg: "#9DA5E1", text: "#000" },
-    hardwork: { bg: "#282828", text: "#fff" },
-    hope: { bg: "#282828", text: "#fff" },
-    impact: { bg: "#373133", text: "#fff" },
-    imagination: { bg: "#373133", text: "#fff" },
-    individuality: { bg: "#AAAA6B", text: "#000" },
-    innovation: { bg: "#282828", text: "#fff" },
-    initiative:{bg:"#1B546B",text:"#fff"},
-    inspiration: { bg: "#A67F34", text: "#000" },
-    integrity: { bg: "#282828", text: "#fff" },
-    kindness: { bg: "#3E5662", text: "#fff" },
-    knowledge: { bg: "#352315", text: "#fff" },
-    leadership: { bg: "#413E3B", text: "#fff" },
-    legacy: { bg: "#BE926E", text: "#000" },
-    life: { bg: "#3A4D2B", text: "#fff" },
-    limitations: { bg: "#7790B1", text: "#000" },
-    love: { bg: "#ABCEE4", text: "#000" },
-    mindset: { bg: "#5B9FBE", text: "#000" },
-    motivation: { bg: "#79B1E2", text: "#000" },
-    opportunity: { bg: "#78ABC3", text: "#000" },
-    optimism: { bg: "#E2D7BE", text: "#000" },
-    passion: { bg: "#BAD9CB", text: "#000" },
-    perseverance: { bg: "#122321", text: "#fff" },
-    persistence: { bg: "#8093A2", text: "#000" },
-    perspective: { bg: "#97A481", text: "#000" },
-    planning: { bg: "#9BA69E", text: "#000" },
-    possibility: { bg: "#373566", text: "#fff" },
-    potential: { bg: "#192738", text: "#fff" },
-    preparation: { bg: "#484B25", text: "#fff" },
-    purpose: { bg: "#173753", text: "#fff" },
-    regret: { bg: "#282828", text: "#fff" },
-    resilience: { bg: "#282828", text: "#fff" },
-    risk: { bg: "#4E787F", text: "#000" },
-    "self-discovery": { bg: "#271F14", text: "#fff" },
-    selfgrowth: { bg: "#AAD2DF", text: "#000" },
-    strength: { bg: "#4984AE", text: "#000" },
-    success: { bg: "#282828", text: "#fff" },
-    time: { bg: "#282828", text: "#fff" },
-    transformation: { bg: "#568788", text: "#000" },
-    value: { bg: "#042421", text: "#fff" },
-    wisdom: { bg: "#79B1E2", text: "#000" },
-    default: { bg: "#f5f5f5", text: "#000" },
-  };
 
-  const key = category?.toLowerCase() || "default";
-  return map[key] || map.default;
-};
 
 export default function Home() {
   const [quote, setQuote] = useState<Quote | null>(null);
